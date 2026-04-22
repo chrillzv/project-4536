@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome Screen</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: white;
+    }
+
+    /* Fullscreen intro */
+    #intro {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 1s ease;
+    }
+
+    /* Animated text */
+    #intro h1 {
+        color: white;
+        font-size: 3em;
+        letter-spacing: 5px;
+        animation: fadeInScale 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes fadeInScale {
+        0% {
+            opacity: 0.3;
+            transform: scale(0.9);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+    }
+
+    /* Main content */
+    #content {
+        display: none;
+        text-align: center;
+        padding: 50px;
+    }
+</style>
+</head>
+
+<body>
+
+<div id="intro">
+    <h1>WELCOME</h1>
+</div>
+
+<div id="content">
+    <h2>Your website starts here 🎉</h2>
+    <p>This appears after the intro screen.</p>
+</div>
+
+<script>
+    // Wait 10 seconds, then fade out intro
+    setTimeout(() => {
+        const intro = document.getElementById('intro');
+        intro.style.opacity = '0';
+
+        setTimeout(() => {
+            intro.style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+        }, 1000);
+
+    }, 10000);
+</script>
+
+</body>
+</html>
